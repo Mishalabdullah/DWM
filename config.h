@@ -19,7 +19,9 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "💻", "🌍", " ", ">_" };
+static const char *tags[] = { "💻", "🌍", "📝", "🔥" };
+// static const char *tags[] = { "⌨₁", "＃₂", "📩₃", "💢₄", "💻₅", "∞₆", "¤₇", "🌍₈", "💾₉" ,""," 📚","🔥"};
+
 
 static const Rule rules[] = {
 	/* xprop(1):
