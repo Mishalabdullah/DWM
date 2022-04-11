@@ -9,8 +9,8 @@ static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=2
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#120f19";//"#222222";
 static const char col_gray2[]       = "#5C6891";//"#444444";
-static const char col_gray3[]       = "#5177A8";//"#bbbbbb";
-static const char col_gray4[]       = "#5C84B3";//"#eeeeee";
+static const char col_gray3[]       = "#5177A8";//"#bbbbbb";//icons
+static const char col_gray4[]       = "#ffffff";//"#5C84B3eeeeee"; - dmenu text
 static const char col_cyan[]        = "#698EB7";//"#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -93,6 +93,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,     			        XK_r,      spawn,          SHCMD("rofi -show drun") },
+	//{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
