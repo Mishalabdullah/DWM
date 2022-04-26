@@ -7,11 +7,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10", "fontawesome:size=20:antialias=true:autohint=true" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#120f19";//"#222222";
-static const char col_gray2[]       = "#5C6891";//"#444444";
-static const char col_gray3[]       = "#5177A8";//"#bbbbbb";//icons
-static const char col_gray4[]       = "#ffffff";//"#5C84B3eeeeee"; - dmenu text
-static const char col_cyan[]        = "#698EB7";//"#005577";
+static const char col_gray1[]       = "#120f19";   //black
+static const char col_gray2[]       = "#5C6891";   //blue
+static const char col_gray3[]       = "#5177A8";    //"#bbbbbb";//icons
+static const char col_gray4[]       = "#000000";   //white //"#5C84B3eeeeee"; - dmenu text
+static const char col_cyan[]        = "#698EB7";    //"#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -124,4 +124,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
