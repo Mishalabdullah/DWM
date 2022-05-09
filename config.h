@@ -53,6 +53,7 @@ static const Layout layouts[] = {
 
 
 /* key definitions */
+#include <X11/XF86keysym.h>
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
@@ -68,9 +69,13 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "terminator", NULL };
 static const char *slockcmd[] = { "slock", NULL };
+/*volume */
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,				XK_l, 	   spawn,		   {.v = slockcmd } },
+	{ MODKEY|ShiftMask,				      XK_l, 	   spawn,		       {.v = slockcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -94,7 +99,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,     			        XK_r,      spawn,          SHCMD("rofi -show drun -show-icons") },
+	{ MODKEY,     			            XK_r,      spawn,          SHCMD("rofi -show drun -show-icons") },
+	/* volume */
+	{ MODKEY,                       XK_F7,    spawn,         {.v = downvol } },
+	{ MODKEY,                       XK_F6,     spawn, 				{.v = mutevol } },
+	{ MODKEY,                       XK_F8,    spawn, 				{.v = upvol   } },
 	//{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
