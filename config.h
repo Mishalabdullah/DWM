@@ -92,9 +92,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -show-icons") },
 	/* volume */
-        { XF86AudioRaiseVolume          XK_0,                  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%")},
-	{ XF86AudioLowerVolume,           XK_0,                  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%")},
-        { XF86AudioMute,                  XK_0,                  spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
+        { 0,                            XF86XK_AudioRaiseVolume ,                  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%")},
+	{ 0,                            XF86XK_AudioLowerVolume,                  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%")},
+        { 0,                            XF86XK_AudioMute,                  spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
 	//{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
