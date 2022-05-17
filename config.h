@@ -70,9 +70,6 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "terminator", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 /*volume */
-static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
-static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
-static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,				      XK_l, 	   spawn,		       {.v = slockcmd } },
@@ -99,11 +96,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,     			            XK_r,      spawn,          SHCMD("rofi -show drun -show-icons") },
+	{ MODKEY,                       XK_r,      spawn,          SHCMD("rofi -show drun -show-icons") },
 	/* volume */
-	{ MODKEY,                       XK_F7,    spawn,         {.v = downvol } },
-	{ MODKEY,                       XK_F6,     spawn, 				{.v = mutevol } },
-	{ MODKEY,                       XK_F8,    spawn, 				{.v = upvol   } },
+        { XF86XK_AudioRaiseVolume,        XK_0,                  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10%")},
+	{ XF86XK_AudioLowerVolume,           XK_0,                  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10%")},
+        { XF86XK_AudioMute,                  XK_0,                  spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
 	//{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
