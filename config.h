@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] =    {"1","2","3","4"};   /*{ "💻", "🌍", "📝", "🔥" };*/
+static const char *tags[] =    {"1","2","3","4","5"};   /*{ "💻", "🌍", "📝", "🔥" };*/
 // static const char *tags[] = { "⌨₁", "＃₂", "📩₃", "💢₄", "💻₅", "∞₆", "¤₇", "🌍₈", "💾₉" ,""," 📚"};
 
 
@@ -63,8 +63,6 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "gnome-terminal", NULL };
 static const char *slockcmd[] = { "slock", NULL };
-static const char *brightnessup[] = { "xbacklight", "-", "10", NULL };
-static const char *brightnessdown[] = { "xbacklight", "+", "10", NULL };
 /*volume */
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -97,8 +95,8 @@ static Key keys[] = {
 	{ 0,           XF86XK_AudioRaiseVolume ,   spawn, 	   SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10% ")},
 	{ 0,           XF86XK_AudioLowerVolume,    spawn,    	   SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10% ")},
         { 0,           XF86XK_AudioMute,           spawn,    	   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
-	{0,            XF86XK_MonBrightnessUp,     spawn,          {.v = brightnessup} },
-	{0,            XF86XK_MonBrightnessDown,   spawn,          {.v = brightnessdown} },
+	{0,            XF86XK_MonBrightnessUp,     spawn,          SHCMD("xbacklight +10")},
+	{0,            XF86XK_MonBrightnessDown,   spawn,          SHCMD("xbacklight -10")},
 	//{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
