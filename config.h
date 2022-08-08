@@ -91,13 +91,14 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("rofi -combi-modi window,drun,ssh   -show combi -icon-theme  -show-icons") },
+	
 	/* volume */
 	{ 0,           XF86XK_AudioRaiseVolume ,   spawn, 	   SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +10% ")},
 	{ 0,           XF86XK_AudioLowerVolume,    spawn,    	   SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -10% ")},
         { 0,           XF86XK_AudioMute,           spawn,    	   SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle")},
 	{0,            XF86XK_MonBrightnessUp,     spawn,          SHCMD("xbacklight +10")},
 	{0,            XF86XK_MonBrightnessDown,   spawn,          SHCMD("xbacklight -10")},
-	//{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf") },
+	{ MODKEY,						XK_a,	   spawn,		   SHCMD("lf")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
