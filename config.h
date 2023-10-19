@@ -59,7 +59,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
-
+# include "shiftview.c"
 static const Key keys[] = {
 	{ MODKEY, XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
@@ -102,6 +102,8 @@ static const Key keys[] = {
 { 0, XK_F2, spawn, SHCMD("pamixer --decrease 10")},
 { 0, XK_F1, spawn, SHCMD("pamixer --toggle-mute")},
 
+{ MODKEY,              XK_n,           shiftview,  { .i = +1 } },
+{ MODKEY,              XK_b,           shiftview,  { .i = -1 } },
 };
 
 /* button definitions */
