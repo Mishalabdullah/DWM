@@ -68,7 +68,7 @@ static const char *termcmd[]  = { "kitty", NULL };
 # include "shiftview.c"
 static const Key keys[] = {
 	{ MODKEY, XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
+	{ MODKEY, XK_Return, spawn, {.v = termcmd } },
   	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -81,7 +81,7 @@ static const Key keys[] = {
 	{ MODKEY, XK_l, setmfact, {.f = +0.05} },
 	{ MODKEY, XK_Return, zoom, {0} },
 	{ MODKEY, XK_Tab, view, {0} },
-	{ MODKEY|ShiftMask, XK_c, killclient, {0} },
+	{ MODKEY, XK_q, killclient, {0} },
 	{ MODKEY, XK_t, setlayout, {.v = &layouts[0]} },
 	{ MODKEY, XK_f, setlayout, {.v = &layouts[1]} },
 	{ MODKEY, XK_m, setlayout, {.v = &layouts[2]} },
@@ -112,7 +112,7 @@ static const Key keys[] = {
 { 0, XK_F1, spawn, SHCMD("pamixer --toggle-mute")},
 
 { MODKEY,              XK_n,           shiftview,  { .i = +1 } },
-{ MODKEY,              XK_b,           shiftview,  { .i = -1 } },
+{ MODKEY|ShiftMask,              XK_n,           shiftview,  { .i = -1 } },
 };
 
 /* button definitions */
